@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {useGetAvatar} from './hooks/useGetAvatar';
 
 
-// Más instrucciones en https://www.notion.so/yanatechnologies/Frontend-Challenge-9427a4f79be54b5bb8c3ace2dd93a414
+// Más instrucciones en https://yanatechnologies.notion.site/Frontend-Challenge-9427a4f79be54b5bb8c3ace2dd93a414
 const Challenge = () => {
   const yanaAvatar = useGetAvatar('yana');
   return (
