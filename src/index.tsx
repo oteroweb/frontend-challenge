@@ -43,7 +43,7 @@ const FlexRowVCenter = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-const TextInstructionsContainer = styled.Text`
+const TextInstructionsContainer = styled.View`
   margin-left: 12px;
   display: flex;
   flex-direction: column;
