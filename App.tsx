@@ -1,25 +1,21 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {Provider} from 'react-redux';
-import {persistor, store} from './src/redux/store';
-import {PersistGate} from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 import Challenge from './src';
+import { theme } from "./src/theme";
 
 export default function App() {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <AppContainer>
-          <Challenge/>
-        </AppContainer>
-      </PersistGate>
+      <Challenge />
     </Provider>
   );
 }
 
 const AppContainer = styled.View`
   flex: 1;
-  background-color: #ecf0f1;
+  background-color: $(theme.colors.white);
   align-items: center;
   justify-content: center;
 `;
