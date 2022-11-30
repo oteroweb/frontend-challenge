@@ -24,8 +24,6 @@ export const authSlice = createSlice({
    initialState,
    reducers: {
       register: (state, action: PayloadAction<UserState>) => {
-         // console.log(state)
-         // console.log(action.payload)
          state.username = action.payload.username;
          state.email = action.payload.email;
          state.isLoggedIn = action.payload.isLoggedIn as boolean
@@ -33,8 +31,7 @@ export const authSlice = createSlice({
       setIsloggedIn: (state, action: PayloadAction<IsLoggedInType>) => {
          state.isLoggedIn = action.payload as boolean
       },
-      logout: (state, action: PayloadAction<IsLoggedInType>) => {
-         console.log("hola")
+      logout: (state) => {
          state.isLoggedIn = false
       },
    },
