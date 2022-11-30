@@ -13,7 +13,6 @@ interface IsLoggedInType {
 }
 
 const initialState: UserState = {
-   // value: 0,
    user: "",
    email: "",
    isLoggedIn: false,
