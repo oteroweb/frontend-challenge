@@ -32,7 +32,6 @@ const BigText = styled.Text`
   color: #000;
 `;
 const ContainerForm = styled.View`
-  /* background: #672A11;  */
   flex: 3;
 min-width:90%;
 `
@@ -75,15 +74,10 @@ const StyledText = styled.Text`
 `
 
 const Register = () => {
-   /* const count = useSelector((state: RootState) => state.user.value) */
-   /* const register = useSelector((state: RootState) => state.counter.isLoggedIn) */
    const dispatch = useDispatch()
-
-
-   const [text, onChangeText] = React.useState("Useless Text");
-   const [email, onChangeEmail] = React.useState("test@gmail.com");
-   const [username, onChangeUsername] = React.useState("test3");
-   const [password, onChangePassword] = React.useState("pass");
+   const [email, onChangeEmail] = React.useState("");
+   const [username, onChangeUsername] = React.useState("");
+   const [password, onChangePassword] = React.useState("");
 
    const handleLogin = () => {
       const form: userType = {
@@ -93,10 +87,7 @@ const Register = () => {
          isLoggedIn: true,
       };
 
-      // if !(user && email && password): return Alert.alert("ingrese los datos")
-      // guardar user, email y password con otro dispatch
       if (form.username && form.email && form.pass) {
-         /* console.log(form) */
          dispatch(register(form))
       }
       else {
@@ -107,15 +98,9 @@ const Register = () => {
 
    return (
       <FlexRowVCenter>
-         {/* <YanaAvatar source={yanaAvatar}/> */}
-         {/* <TextInstructionsContainer> */}
          <HeaderContainer>
             <BigText>{dictionary.register.headerText}</BigText>
          </HeaderContainer>
-         {/* <Text>Comienza editando el archivo <CodeText>src/index.tsx</CodeText></Text> */}
-         {/* </TextInstructionsContainer> */}
-
-         {/* (register == true ) ?  <componentesesion></componentesesion> :  <componentelogin></componentelogin> */}
          <ContainerForm>
             <StyledTextInput onChangeText={onChangeEmail} value={email} placeholder={dictionary.register.userInputText} keyboardType="text" />
             <StyledTextInput onChangeText={onChangeUsername} value={username} placeholder={dictionary.register.emailInputText} keyboardType="text" />
