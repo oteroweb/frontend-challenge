@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import ChatInput from "../../components/messages/ChatInput";
 import { useFonts, Raleway_400Regular } from '@expo-google-fonts/raleway';
 import { useSelector } from 'react-redux'
-import type { RootState } from '../redux/store';
+import type { RootState } from '../../redux/store';
 
 const StyledChatView = styled.View`
   flex: 1;
