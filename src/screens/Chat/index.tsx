@@ -1,30 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
 
-import ChatInput from "../components/messages/ChatInput";
+import ChatInput from "../../components/messages/ChatInput";
 import { useFonts, Raleway_400Regular } from '@expo-google-fonts/raleway';
-
-
-const MESSAGES = [
-  'Hola Humano, ¿Como estas?',
-  'Estoy muy bien gracias',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-  'Hola Yana',
-  'Hola Humano, ¿Como estas?',
-
-];
+import { useSelector } from 'react-redux'
+import type { RootState } from '../redux/store';
 
 const StyledChatView = styled.View`
   flex: 1;
@@ -96,11 +76,11 @@ ${(props) =>
 const StyledEvenText = styled.Text`
     color:#4B5959;
     font-size: 14;
-    line-height: 24;
+    line-height: 24px;
     font-weight:400;
 `
 const Chat = () => {
-
+  const messages = useSelector((state: RootState) => state.messages)
   let [fontsLoaded] = useFonts({
     Raleway_400Regular,
   });
@@ -133,25 +113,27 @@ const Chat = () => {
     <StyledChatView>
       <StyledScrollView
       >
-        {MESSAGES.map((text, i) => {
-          const odd = i % 2;
+        {
+          messages.map((text, i) => {
+            const odd = i % 2;
 
-          return (
-            (odd)
-              ? <StyledOddMessage key={i}>
-                <StyledOddBubble>
-                  <StyledOddText > {text}  </StyledOddText>
-                </StyledOddBubble>
-              </ StyledOddMessage>
-              :
-              <StyledEvenMessage key={i}>
-                <StyledEvenBubble>
-                  <StyledEvenText > {text}  </StyledEvenText>
-                </StyledEvenBubble>
-              </ StyledEvenMessage>
+            return (
+              (odd)
+                ? <StyledOddMessage key={i}>
+                  <StyledOddBubble>
+                    <StyledOddText > {text} </StyledOddText>
+                  </StyledOddBubble>
+                </ StyledOddMessage>
+                :
+                <StyledEvenMessage key={i}>
+                  <StyledEvenBubble>
+                    <StyledEvenText > {text}  </StyledEvenText>
+                  </StyledEvenBubble>
+                </ StyledEvenMessage>
 
-          );
-        })}
+            );
+          })
+        }
         {/* formatdate pending */}
         <StyledDate> Jue. 4 de Junio - 11:00 AM  </StyledDate>
       </StyledScrollView>
