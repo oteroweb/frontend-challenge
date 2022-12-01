@@ -41,12 +41,15 @@ const StyledTextInput = styled.TextInput`
 	align-self: center;
 `
 const StyledTouchableOpacity = styled.TouchableOpacity`
-	background-color: ${theme.colors.primary};
-		border-radius: 50;
-		height: 50px;
-		width: 50px;
-		align-items: center;
-		justify-content: center;
+	background-color: ${theme.colors.light};
+	${({ active }) => active && `
+    background: ${theme.colors.primary};;
+  `}
+	border-radius: 50px;
+	height: 50px;
+	width: 50px;
+	align-items: center;
+	justify-content: center;
 `
 
 const ChatInput = () => {
@@ -71,7 +74,7 @@ const ChatInput = () => {
 						onChangeText={(text) => setMessage(text)}
 					/>
 				</StyledInputBar>
-				<StyledTouchableOpacity onPress={handleSendMessage} >
+				<StyledTouchableOpacity active={message} onPress={handleSendMessage} >
 					<Icon
 						name="send"
 						size={23}
