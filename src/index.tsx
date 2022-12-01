@@ -18,7 +18,7 @@ const RoundedContainer = styled.View<{ bgColor: string; padding: number }>`
 
 // Más instrucciones en https://yanatechnologies.notion.site/Frontend-Challenge-9427a4f79be54b5bb8c3ace2dd93a414
 const Challenge = () => {
-  const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn)
+  const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn)
   return (
     <RoundedContainer bgColor={theme.white} padding={0} margin={0}>
       {
