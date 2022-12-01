@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { dictionary } from '../../dictionary';
-import { Text, View, TouchableOpacity, TextInput, SafeAreaView, Alert } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux'
+import { Alert } from 'react-native';
+import { useDispatch } from 'react-redux'
 
-
-import type { RootState } from '../../redux/store';
 import { register, setIsloggedIn } from '../../redux/auth'
 
 interface userType {

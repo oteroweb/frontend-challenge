@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { dictionary } from '../../dictionary';
-import { Text, View, Image, TouchableOpacity, TextInput, SafeAreaView, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux'
 
 
 import type { RootState } from '../../redux/store';
-import { register, setIsloggedIn, logout } from '../../redux/auth'
+import { logout } from '../../redux/auth'
 
 interface userType {
    username: string;
@@ -25,7 +24,6 @@ const HeaderContainer = styled.View`
   flex: 2; 
   align-items:center;
   justify-content: center;
-  /* margin-top:20px; */
 `
 
 const StyledProfile = styled.View`
@@ -80,11 +78,11 @@ const StyledButtonText = styled.Text`
 `
 
 const ProfileScreen = () => {
-   const user = useSelector((state: RootState) => state.user)
+   const user = useSelector((state: RootState) => state)
    const dispatch = useDispatch()
 
    const handleLogout = () => {
-      dispatch(logout(false))
+      dispatch(logout())
    }
 
    return (
