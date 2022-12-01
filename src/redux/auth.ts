@@ -15,9 +15,9 @@ interface IsLoggedInType {
 }
 
 const initialState: RootState = {
-   username: "123123123",
-   email: "12312312",
-   pass: "123123",
+   username: "",
+   email: "",
+   pass: "",
    isLoggedIn: false,
    messages: [
       'Hola Humano, ¿Como estas?',
